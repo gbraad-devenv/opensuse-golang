@@ -9,3 +9,10 @@ RUN zypper install -y \
         go \
         delve \
     && zypper clean -a
+
+USER root
+
+RUN systemctl enable tailscaled
+
+ENTRYPOINT ["/sbin/init"]
+#CMD ["/sbin/init"]
